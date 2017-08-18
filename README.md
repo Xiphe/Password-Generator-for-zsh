@@ -50,20 +50,22 @@ pw_gen -l 128 -s aaaaan
 Options
 -------
 
-* -h --help      Show the help.
-* -a --add       Add this password to the latest.
-* -i --incognito Don't save the password for the --latest option.
-* -l --length    The number of characters, the password should contain. (Default: 16)
-*    --latest    Show the latest password generated.
-* -s --source    What type of characters should be used. (Default: aAns)  
-                  a = lowercased letters  
-                  A = uppercased letters  
-                  n = numbers  
-                  s = symbols ($symbols)  
-* -S --silent    Make no output.
-* -v --version   Show the version number.
-* -q --addquiet  Same as --add but show only the new password.
-
+```
+-a --add       Add this password to the latest.
+-h --help      Show this help.
+-i --incognito Don't save the password for the --latest option.
+-l --length    The number of characters, the password should contain. (Default: 16)
+    --latest    Show the latest password generated.
+-s --source    What type of characters should be used. (Default: aAns)
+                  a = lowercased letters
+                  A = uppercased letters
+                  n = numbers
+                  s = symbols ("',;.:-_#+*!$%&/^()=?@[]|{}~)
+                  S = symbols without quotes (,;.:-_#+*!$%&/^()=?@[]|{}~)
+-S --silent    Make no output.
+-v --version   Show the version number.
+-q --addquiet  Same as --add but show only the new password.
+```
 
 Usage with Text Expander
 ------------------------
