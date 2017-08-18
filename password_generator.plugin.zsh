@@ -23,16 +23,16 @@
 # THE SOFTWARE.
 
 function password_generator() {
-  local -a i length latest charsource help add vers silent incognito addquiet source_length save_password new_password password latest_pw alpha Alpha numbers symbols
+  local -a i length latest charsource help add vers silent incognito addquiet source_length save_password new_password password latest_pw alpha Alpha numbers symbols save_symbols
 
-  version="0.1"
+  version="0.2"
 
   ## Source Seeds.
   alpha="abcdefghijklmnopqrstuvwxyz"
   Alpha="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   numbers="0123456789"
-  symbols=',;.:-_#+*!"$%&/^()=?@[]|{}~'
-  symbols="'$symbols"
+  save_symbols=",;.:-_#+*!$%&/^()=?@[]|{}~"
+  symbols="\"'$save_symbols"
 
   ## Parse options.
   zparseopts a=add       -add=add \
@@ -69,6 +69,7 @@ function password_generator() {
     echo "                   A = uppercased letters" 
     echo "                   n = numbers"
     echo "                   s = symbols ($symbols)"
+    echo "                   S = symbols without quotes ($save_symbols)"
     echo "  -S --silent    Make no output."
     echo "  -v --version   Show the version number."
     echo "  -q --addquiet  Same as --add but show only the new password."
@@ -94,6 +95,9 @@ function password_generator() {
         ;;
       s )
         charsource="$charsource$symbols"
+        ;;
+      S )
+        charsource="$charsource$save_symbols"
         ;;
     esac
     let i++
